@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SANTA CUP I — mikołajkowy turniej Counter-Strike 2.">
+<title>SANTA CUP I | Turniej CS2</title>
+<style>
+:root{--bg:#061326;--panel:#0b1d35;--red:#ed2638;--red2:#a90e20;--white:#f6f8ff;--muted:#b7c9e2;--line:#17416b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}html{background:#061326}body{margin:0;background:transparent;color:var(--white);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden;position:relative;isolation:isolate}
+body:before,body:after{content:"";position:fixed;inset:-120% 0 0;pointer-events:none;z-index:8;background-repeat:repeat;background-size:260px 260px;animation:snowfall 18s linear infinite}
+body:before{opacity:.42;background-image:radial-gradient(2px 2px at 35px 40px,#fff 98%,transparent),radial-gradient(1.5px 1.5px at 130px 170px,#d9edff 98%,transparent),radial-gradient(2px 2px at 220px 90px,#fff 98%,transparent)}
+body:after{opacity:.22;background-size:380px 380px;animation-duration:28s;background-image:radial-gradient(3px 3px at 70px 110px,#fff 98%,transparent),radial-gradient(2px 2px at 290px 260px,#d9edff 98%,transparent)}
+@keyframes snowfall{from{transform:translateY(-8%)}to{transform:translateY(85%)}}
+.page-background{position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(2,10,24,.18),rgba(2,10,24,.48)),url("santa-cup-background.png") center center/cover no-repeat;pointer-events:none}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+header{height:76px;display:flex;align-items:center;border-bottom:1px solid #168cff;background:rgba(4,18,39,.72);position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:900;letter-spacing:2px}.brand span{color:var(--red)}
+.links{display:flex;gap:25px;color:#d4d1d5;font-size:14px}.links a:hover{color:var(--red)}
+.hero{min-height:720px;display:grid;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(3,12,27,.34),rgba(3,12,27,.12)),transparent;border:1px solid #4b1821;border-radius:0 0 16px 16px;padding:54px clamp(22px,5vw,64px);box-shadow:0 20px 80px #ed263822}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:130px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
+.kicker{color:#ff6572;font-size:12px;font-weight:800;letter-spacing:4px;text-transform:uppercase}
+h1{font-size:clamp(58px,11vw,132px);line-height:.86;letter-spacing:-7px;margin:22px 0 18px;font-weight:1000;text-shadow:0 8px 50px #ed263833}.hero-logo{display:block;width:min(100%,900px);height:auto;max-height:360px;object-fit:contain;object-position:left center;margin:8px 0 20px;filter:drop-shadow(0 8px 28px #0009)}
+h1 span{display:block;color:var(--red)}.hero p{font-size:18px;color:var(--muted);max-width:570px;line-height:1.65}
+.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 22px;border-radius:7px;font-weight:800;letter-spacing:.4px;background:var(--red);color:white;border:1px solid var(--red);transition:.2s}.btn:hover{transform:translateY(-2px);background:#ff3c4e}.btn.alt{background:transparent;border-color:#55515c}.btn.alt:hover{border-color:var(--red)}
+.snow{position:absolute;right:8%;top:18%;font-size:clamp(110px,20vw,230px);opacity:.12;filter:drop-shadow(0 0 25px #ed2638)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-45px;position:relative}
+.stat{background:linear-gradient(145deg,rgba(13,43,76,.86),rgba(7,23,43,.88));border:1px solid #168cff;padding:23px;border-radius:10px;box-shadow:0 0 22px #168cff30,0 10px 35px #0008}.stat strong{display:block;font-size:30px;color:var(--red);margin-bottom:6px}.stat small{color:var(--muted);letter-spacing:1px;text-transform:uppercase;font-size:11px}
+section{padding:95px 0}.section-tag{color:var(--red);font-size:11px;letter-spacing:3px;font-weight:900;text-transform:uppercase}h2{font-size:clamp(34px,5vw,54px);margin:12px 0 18px;letter-spacing:-1.5px}.intro{color:var(--muted);line-height:1.7;max-width:650px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}.card{background:linear-gradient(145deg,rgba(11,37,67,.82),rgba(5,17,33,.86));border:1px solid #1764a5;padding:26px;border-radius:10px;box-shadow:inset 0 1px 0 #ffffff14,0 0 24px #168cff20,0 12px 35px #0008}.icon{font-size:28px}.card h3{margin:15px 0 8px}.card p{color:var(--muted);line-height:1.6;margin:0}
+.contact{background:linear-gradient(120deg,#260d13,#111116 65%);border:1px solid #55202a;border-radius:14px;padding:clamp(26px,5vw,54px);display:flex;align-items:center;justify-content:space-between;gap:25px}.contact p{color:#c7bfc2;line-height:1.65;max-width:580px}
+.note{font-size:12px;color:#8d8992;margin-top:16px}
+.team-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}.team-button{width:100%;text-align:left;color:var(--white);font:inherit;cursor:pointer;transition:.2s}.team-button:hover{border-color:#70c8ff;box-shadow:0 0 24px #168cff55;transform:translateY(-2px)}.team-button strong{display:block}.team-logo{width:54px;height:54px;object-fit:contain;background:#fff;border:2px solid #d7bd70;border-radius:50%;padding:3px;flex:0 0 auto}.team-button.bannda{border-color:#d7bd70;background:linear-gradient(145deg,rgba(45,38,20,.88),rgba(4,16,33,.92))}.roster-logo{width:150px;height:150px;object-fit:contain;background:#fff;border:4px solid #d7bd70;border-radius:50%;padding:5px;display:block;margin:4px auto 18px;box-shadow:0 0 25px #d7bd7040}.team-button small{display:block;color:var(--muted);font-size:11px;margin-top:4px}.roster-panel{display:none;margin-top:26px;padding:24px;border:1px solid #168cff;background:rgba(4,18,39,.94);border-radius:12px;box-shadow:0 0 30px #168cff33}.roster-panel.visible{display:block}.roster-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.roster-head h3{margin:5px 0;font-size:26px}.roster-close{background:#102f52;color:white;border:1px solid #168cff;border-radius:7px;padding:10px 14px;cursor:pointer}.players{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}.player{padding:15px 8px;text-align:center;border:1px solid #24517b;background:#0a203b;border-radius:8px}.player b{display:block;margin-top:7px;font-size:13px}.player small{color:#91b9dc;font-size:11px}@media(max-width:700px){.players{grid-template-columns:repeat(2,1fr)}}.team{display:flex;align-items:center;gap:14px;padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:9px}.team b{display:grid;place-items:center;width:38px;height:38px;border-radius:8px;background:#32151c;color:#ff6572}.team span{font-weight:700}.team small{display:block;color:var(--muted);font-size:11px;margin-top:4px}@media(max-width:600px){.team-list{grid-template-columns:1fr}}\nfooter{border-top:1px solid #17416b;padding:28px 0;color:#817d86;font-size:12px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:720px){.hero-logo{max-height:230px;width:100%;object-position:center}.hero{min-height:620px;background-position:55% center;padding:36px 22px}.links{gap:12px;font-size:12px}.links a:nth-child(2){display:none}.hero{min-height:570px}.snow{right:0;top:9%}.stats{grid-template-columns:1fr;margin-top:-20px}.grid{grid-template-columns:1fr}section{padding:70px 0}.contact{align-items:flex-start;flex-direction:column}h1{letter-spacing:-4px}}
+
+.bracket-intro{margin-bottom:28px}
+.groups-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}
+.group-card{background:linear-gradient(145deg,rgba(5,28,54,.94),rgba(3,13,29,.94));border:1px solid #168cff;border-radius:12px;padding:20px;box-shadow:0 0 24px #168cff20}
+.group-title{display:flex;align-items:center;justify-content:space-between;margin:0 0 15px;font-size:23px}
+.group-title span{color:#8dcfff;font-size:12px;letter-spacing:2px}
+.group-table{width:100%;border-collapse:separate;border-spacing:0 8px}
+.group-table th{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#a9c5e2;text-align:left;padding:0 9px 5px}
+.group-table td{padding:12px 9px;background:rgba(11,32,58,.9);border-top:1px solid #24517b;border-bottom:1px solid #24517b;font-size:14px}
+.group-table td:first-child{border-left:1px solid #24517b;border-radius:7px 0 0 7px;width:42px;font-weight:900}
+.group-table td:last-child{border-right:1px solid #24517b;border-radius:0 7px 7px 0;text-align:right}
+.group-table tr.qualify-first td{background:rgba(22,115,63,.34);border-color:#27c76f}
+.group-table tr.qualify-second td{background:rgba(173,91,12,.32);border-color:#f59e0b}
+.place-tag{font-size:10px;font-weight:900;letter-spacing:.6px;padding:5px 7px;border-radius:5px;white-space:nowrap}
+.qualify-first .place-tag{background:#168447;color:#eafff1}
+.qualify-second .place-tag{background:#b96b0c;color:#fff4df}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:20px;color:#c5d5e8;font-size:12px}
+.legend-item{display:flex;align-items:center;gap:8px}.legend-dot{width:11px;height:11px;border-radius:3px}.legend-dot.green{background:#27c76f}.legend-dot.orange{background:#f59e0b}
+.playoffs{margin-top:48px}
+.playoffs h3{font-size:28px;margin:0 0 20px}
+.bracket-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:center}
+.round-card{background:rgba(3,17,35,.92);border:1px solid #1764a5;border-radius:11px;padding:18px;box-shadow:0 0 20px #168cff1c}
+.round-card.final{border-color:#ed2638;box-shadow:0 0 25px #ed263833}
+.round-name{font-size:12px;letter-spacing:2px;font-weight:900;color:#8dcfff;margin-bottom:15px}
+.final .round-name{color:#ff6877}
+.match{border:1px solid #315b83;background:#0a203b;border-radius:7px;padding:12px;margin:10px 0;font-size:13px}
+.match strong{display:block;margin-bottom:6px;color:#fff}
+.match small{color:#a9c5e2}
+.match-separator{text-align:center;color:#ff6572;font-size:11px;font-weight:900;letter-spacing:1px}
+.final .match{border-color:#9d3542;background:linear-gradient(120deg,#31101a,#0a203b)}
+.tbd{color:#9fb4ca;font-style:italic}
+@media(max-width:760px){.groups-grid{grid-template-columns:1fr}.bracket-grid{grid-template-columns:1fr}.links{gap:9px;font-size:11px}.links a:nth-child(3){display:none}}
+
+
+.fixtures-area{margin-top:42px}
+.fixtures-heading{font-size:25px;margin:0 0 10px}
+.fixtures-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:20px}
+.fixture-card{min-width:0}
+.table-scroll{width:100%;overflow-x:auto}
+.fixtures-table{width:100%;border-collapse:collapse;min-width:470px}
+.fixtures-table th{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#a9c5e2;text-align:left;padding:10px 8px;border-bottom:1px solid #24517b}
+.fixtures-table td{font-size:12px;padding:12px 8px;border-bottom:1px solid #183c60;color:#e8f2ff}
+.fixtures-table tbody tr:last-child td{border-bottom:0}
+.fixtures-table td:last-child{font-weight:900;color:#ff8791;white-space:nowrap}
+.playoff-schedule{margin-top:18px}
+.group-table{min-width:560px}
+.group-card{min-width:0}
+@media(max-width:720px){.fixtures-grid{grid-template-columns:1fr}.group-card{padding:14px}.group-table th,.group-table td{padding:9px 7px}.links{gap:9px;font-size:11px;flex-wrap:wrap;justify-content:flex-end}.links a:nth-child(2){display:inline}}
+
+</style>
+</head>
+<body>
+<div class="page-background" aria-hidden="true"></div>
+<header><div class="wrap"><nav>
+<a class="brand" href="#">SANTA<span> CUP</span> I</a>
+<div class="links"><a href="#turniej">Turniej</a><a href="#druzyny">Drużyny</a><a href="#drabinka">Drabinka turniejowa</a><a href="#info">Informacje</a><a href="#kontakt">Kontakt</a></div>
+</nav></div></header>
+<main>
+<div class="wrap">
+<section class="hero">
+<div>
+<div class="kicker">Christmas esports event · Counter-Strike 2</div>
+<img class="hero-logo" src="santa-cup-logo.jpg" alt="SANTA CUP I – logo turnieju">
+<p>Świąteczna atmosfera, rywalizacja i Counter-Strike 2. Zbierz ekipę i dołącz do pierwszej edycji SANTA CUP!</p>
+<div class="actions"><a class="btn" href="#kontakt">ZGŁOŚ DRUŻYNĘ</a><a class="btn alt" href="#druzyny">ZOBACZ DRUŻYNY</a></div>
+</div><div class="snow" aria-hidden="true">❄</div>
+</section>
+<div class="stats" id="turniej">
+<div class="stat"><strong>12–13</strong><small>Grudnia · termin turnieju</small></div>
+<div class="stat"><strong>8</strong><small>Maksymalna liczba drużyn</small></div>
+<div class="stat"><strong>50 zł</strong><small>Kaucja od drużyny</small></div>
+</div>
+
+<section id="druzyny">
+<div class="section-tag">Lista uczestników</div><h2>Drużyny</h2>
+<p class="intro">Tutaj znajduje się lista ekip zgłoszonych do SANTA CUP I. Lista ma 8 miejsc — po potwierdzeniu zgłoszenia nazwa drużyny może zostać wpisana w odpowiednie miejsce.</p>
+<div class="team-list">
+<button class="team team-button bannda" type="button" onclick="showRoster(1)"><b>01</b><img class="team-logo" src="bannda-logo.png" alt="Logo Bannda"><span><strong>Bannda</strong><small>Football Club · kliknij, aby zobaczyć skład</small></span></button>
+<button class="team team-button" type="button" onclick="showRoster(2)"><b>02</b><span><strong>Wolne miejsce</strong><small>Miejsce dla drużyny · kliknij, aby zobaczyć skład</small></span></button>
+<button class="team team-button" type="button" onclick="showRoster(3)"><b>03</b><span><strong>Wolne miejsce</strong><small>Miejsce dla drużyny · kliknij, aby zobaczyć skład</small></span></button>
+<button class="team team-button" type="button" onclick="showRoster(4)"><b>04</b><span><strong>Wolne miejsce</strong><small>Miejsce dla drużyny · kliknij, aby zobaczyć skład</small></span></button>
+<button class="team team-button" type="button" onclick="showRoster(5)"><b>05</b><span><strong>Wolne miejsce</strong><small>Miejsce dla drużyny · kliknij, aby zobaczyć skład</small></span></button>
+<button class="team team-button" type="button" onclick="showRoster(6)"><b>06</b><span><strong>Wolne miejsce</strong><small>Miejsce dla drużyny · kliknij, aby zobaczyć skład</small></span></button>
+<button class="team team-button" type="button" onclick="showRoster(7)"><b>07</b><span><strong>Wolne miejsce</strong><small>Miejsce dla drużyny · kliknij, aby zobaczyć skład</small></span></button>
+<button class="team team-button" type="button" onclick="showRoster(8)"><b>08</b><span><strong>Wolne miejsce</strong><small>Miejsce dla drużyny · kliknij, aby zobaczyć skład</small></span></button>
+</div>
+<p class="note">Kliknij wybraną drużynę, aby zobaczyć jej skład.</p>
+<div class="roster-panel" id="rosterPanel" aria-live="polite">
+  <div class="roster-head">
+    <div><div class="section-tag">Skład drużyny</div><h3 id="rosterTitle">Drużyna 01</h3></div>
+    <button class="roster-close" type="button" onclick="closeRoster()">Zamknij ✕</button>
+  </div>
+  <img class="roster-logo" id="rosterLogo" src="bannda-logo.png" alt="Logo drużyny Bannda" style="display:none">
+  <p class="intro" id="rosterDescription">Skład zostanie uzupełniony po zgłoszeniu drużyny.</p>
+  <div class="players" id="players"></div>
+</div>
+<script>
+const teamRosters = {
+  1:["Tymek Puchacz","Bandur","Pisar","Quinds","Byk rozpłodowy"],
+  2:["Gracz 1","Gracz 2","Gracz 3","Gracz 4","Gracz 5"],
+  3:["Gracz 1","Gracz 2","Gracz 3","Gracz 4","Gracz 5"],
+  4:["Gracz 1","Gracz 2","Gracz 3","Gracz 4","Gracz 5"],
+  5:["Gracz 1","Gracz 2","Gracz 3","Gracz 4","Gracz 5"],
+  6:["Gracz 1","Gracz 2","Gracz 3","Gracz 4","Gracz 5"],
+  7:["Gracz 1","Gracz 2","Gracz 3","Gracz 4","Gracz 5"],
+  8:["Gracz 1","Gracz 2","Gracz 3","Gracz 4","Gracz 5"]
+};
+function showRoster(teamNumber){
+  const panel=document.getElementById("rosterPanel");
+  document.getElementById("rosterTitle").textContent=teamNumber===1?"BANNDA":"Drużyna "+String(teamNumber).padStart(2,"0");
+  const logo=document.getElementById("rosterLogo"); if(logo) logo.style.display=teamNumber===1?"block":"none";
+  document.getElementById("rosterDescription").textContent="Przykładowe miejsca na nicki pięciu zawodników. Można je później zastąpić prawdziwymi nickami.";
+  const players=document.getElementById("players");
+  players.innerHTML="";
+  teamRosters[teamNumber].forEach((player,i)=>{
+    const card=document.createElement("div");card.className="player";
+    const icon=document.createElement("div");icon.textContent="🎮";
+    const name=document.createElement("b");name.textContent=player;
+    const role=document.createElement("small");role.textContent="Zawodnik "+(i+1);
+    card.append(icon,name,role);players.append(card);
+  });
+  panel.classList.add("visible");
+  panel.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+function closeRoster(){document.getElementById("rosterPanel").classList.remove("visible");}
+</script>
+
+</section>
+
+
+<section id="drabinka">
+  <div class="section-tag">Droga po puchar</div>
+  <h2>Drabinka turniejowa</h2>
+  <p class="intro bracket-intro">Osiem drużyn zostanie podzielonych na dwie grupy po cztery ekipy. Z każdej grupy awansują dwa najlepsze zespoły: zwycięzcy grup zaznaczeni na zielono oraz drużyny z drugich miejsc zaznaczone na pomarańczowo.</p>
+
+  <div class="groups-grid">
+    <article class="group-card">
+      <h3 class="group-title">GRUPA A <span>4 DRUŻYNY</span></h3>
+      <table class="group-table">
+        <thead><tr><th>#</th><th>Drużyna</th><th>M</th><th>W</th><th>R</th><th>P</th><th>+/-</th><th> pkt</th></tr></thead>
+        <tbody>
+          <tr class="qualify-first"><td>1.</td><td>Bannda</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0:0</td><td>0</td></tr>
+          <tr class="qualify-second"><td>2.</td><td>Drużyna 2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0:0</td><td>0</td></tr>
+          <tr><td>3.</td><td>Drużyna 3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0:0</td><td>0</td></tr>
+          <tr><td>4.</td><td>Drużyna 4</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0:0</td><td>0</td></tr>
+      </tbody>
+      </table>
+    </article>
+    <article class="group-card">
+      <h3 class="group-title">GRUPA B <span>4 DRUŻYNY</span></h3>
+      <table class="group-table">
+        <thead><tr><th>#</th><th>Drużyna</th><th>M</th><th>W</th><th>R</th><th>P</th><th>+/-</th><th> pkt</th></tr></thead>
+        <tbody>
+          <tr class="qualify-first"><td>1.</td><td>Drużyna 5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0:0</td><td>0</td></tr>
+          <tr class="qualify-second"><td>2.</td><td>Drużyna 6</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0:0</td><td>0</td></tr>
+          <tr><td>3.</td><td>Drużyna 7</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0:0</td><td>0</td></tr>
+          <tr><td>4.</td><td>Drużyna 8</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0:0</td><td>0</td></tr>
+      </tbody>
+      </table>
+    </article>
+  </div>
+
+
+  <div class="fixtures-area">
+    <h3 class="fixtures-heading">TERMINARZ I WYNIKI — FAZA GRUPOWA</h3>
+    <p class="intro">Wyniki i godziny spotkań zostaną uzupełnione po ustaleniu harmonogramu. Znak „—” oznacza mecz nierozpoczęty.</p>
+    <div class="fixtures-grid">
+      <article class="group-card fixture-card">
+        <h3 class="group-title">GRUPA A <span>6 MECZÓW</span></h3>
+        <div class="table-scroll"><table class="fixtures-table">
+          <thead><tr><th>Mecz</th><th>Spotkanie</th><th>Termin</th><th>Wynik</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Bannda – Drużyna 2</td><td>Do ustalenia</td><td>— : —</td></tr>
+            <tr><td>2</td><td>Drużyna 3 – Drużyna 4</td><td>Do ustalenia</td><td>— : —</td></tr>
+            <tr><td>3</td><td>Bannda – Drużyna 3</td><td>Do ustalenia</td><td>— : —</td></tr>
+            <tr><td>4</td><td>Drużyna 2 – Drużyna 4</td><td>Do ustalenia</td><td>— : —</td></tr>
+            <tr><td>5</td><td>Bannda – Drużyna 4</td><td>Do ustalenia</td><td>— : —</td></tr>
+            <tr><td>6</td><td>Drużyna 2 – Drużyna 3</td><td>Do ustalenia</td><td>— : —</td></tr>
+          </tbody>
+        </table></div>
+      </article>
+      <article class="group-card fixture-card">
+        <h3 class="group-title">GRUPA B <span>6 MECZÓW</span></h3>
+        <div class="table-scroll"><table class="fixtures-table">
+          <thead><tr><th>Mecz</th><th>Spotkanie</th><th>Termin</th><th>Wynik</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Drużyna 5 – Drużyna 6</td><td>Do ustalenia</td><td>— : —</td></tr>
+            <tr><td>2</td><td>Drużyna 7 – Drużyna 8</td><td>Do ustalenia</td><td>— : —</td></tr>
+            <tr><td>3</td><td>Drużyna 5 – Drużyna 7</td><td>Do ustalenia</td><td>— : —</td></tr>
+            <tr><td>4</td><td>Drużyna 6 – Drużyna 8</td><td>Do ustalenia</td><td>— : —</td></tr>
+            <tr><td>5</td><td>Drużyna 5 – Drużyna 8</td><td>Do ustalenia</td><td>— : —</td></tr>
+            <tr><td>6</td><td>Drużyna 6 – Drużyna 7</td><td>Do ustalenia</td><td>— : —</td></tr>
+          </tbody>
+        </table></div>
+      </article>
+    </div>
+    <div class="group-card playoff-schedule">
+      <h3 class="group-title">TERMINARZ PLAY-OFF <span>PÓŁFINAŁY I FINAŁ</span></h3>
+      <div class="table-scroll"><table class="fixtures-table">
+        <thead><tr><th>Etap</th><th>Spotkanie</th><th>Termin</th><th>Wynik</th></tr></thead>
+        <tbody>
+          <tr><td>Półfinał 1</td><td>1A – 2B</td><td>Do ustalenia</td><td>— : —</td></tr>
+          <tr><td>Półfinał 2</td><td>1B – 2A</td><td>Do ustalenia</td><td>— : —</td></tr>
+          <tr><td>Finał</td><td>Zwycięzca P1 – Zwycięzca P2</td><td>Do ustalenia</td><td>— : —</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span class="legend-item"><i class="legend-dot green"></i> 1. miejsce — awans do półfinału</span>
+    <span class="legend-item"><i class="legend-dot orange"></i> 2. miejsce — awans do półfinału</span>
+  </div>
+
+  <div class="playoffs">
+    <h3>FAZA PLAY-OFF</h3>
+    <div class="bracket-grid">
+      <article class="round-card">
+        <div class="round-name">PÓŁFINAŁY</div>
+        <div class="match"><strong>Półfinał 1</strong><span class="tbd">1. miejsce Grupy A</span><br><small>vs</small><br><span class="tbd">2. miejsce Grupy B</span></div>
+        <div class="match"><strong>Półfinał 2</strong><span class="tbd">1. miejsce Grupy B</span><br><small>vs</small><br><span class="tbd">2. miejsce Grupy A</span></div>
+      </article>
+      <article class="round-card">
+        <div class="round-name">FINAŁ</div>
+        <div class="match"><strong>Wielki finał</strong><span class="tbd">Zwycięzca półfinału 1</span><br><small>vs</small><br><span class="tbd">Zwycięzca półfinału 2</span></div>
+        <div class="match-separator">ZWYCIĘZCA ZDOBYWA PUCHAR</div>
+      </article>
+      <article class="round-card final">
+        <div class="round-name">MISTRZ SANTA CUP I</div>
+        <div class="match"><strong>🏆 ZWYCIĘZCA</strong><span class="tbd">Miejsce na nazwę triumfatora</span></div>
+      </article>
+    </div>
+  </div>
+  <p class="note">Kolory pokazują miejsca premiowane awansem. Układ jest wstępny — po losowaniu można przypisać drużyny do grup, a po rozegraniu meczów uzupełnić miejsca i wyniki.</p>
+</section>
+
+<section id="info">
+<div class="section-tag">Najważniejsze informacje</div><h2>Wskakuj do gry.</h2>
+<p class="intro">SANTA CUP I to mikołajkowy turniej CS2 w klimacie łączącym esport i święta. Liczba miejsc jest ograniczona — przewidziano udział maksymalnie ośmiu drużyn.</p>
+<div class="grid">
+<article class="card"><div class="icon">🎮</div><h3>Counter-Strike 2</h3><p>Turniej dla drużyn, które chcą sprawdzić swoje umiejętności i powalczyć o zwycięstwo.</p></article>
+<article class="card"><div class="icon">🎅</div><h3>Świąteczny klimat</h3><p>Czerwień, świąteczna energia i rywalizacja w wyjątkowej atmosferze.</p></article>
+<article class="card"><div class="icon">🏆</div><h3>8 miejsc</h3><p>Limit wynosi osiem drużyn. O szczegóły zapisów zapytaj organizatora.</p></article>
+</div>
+<p class="note">Kaucja: 50 zł od drużyny. Szczegóły płatności i zasady udziału należy potwierdzić bezpośrednio z organizatorem.</p>
+</section>
+<section id="kontakt">
+<div class="contact"><div><div class="section-tag">Zapisy i pytania</div><h2>Twoja drużyna. Wasz moment.</h2><p>Chcesz zgłosić ekipę do SANTA CUP I? Skontaktuj się z organizatorem, aby uzyskać informacje o dostępności miejsc, zasadach i sposobie wpłaty kaucji. Email: <a href="mailto:pisarekdominik2020@gmail.com" style="color:#8fcaff;text-decoration:underline">pisarekdominik2020@gmail.com</a>.</p></div><a class="btn" href="mailto:pisarekdominik2020@gmail.com">KONTAKT Z ORGANIZATOREM</a></div>
+<p class="note">Email organizatora: <a href="mailto:pisarekdominik2020@gmail.com" style="color:#8fcaff">pisarekdominik2020@gmail.com</a></p>
+</section>
+</div>
+</main>
+<footer><div class="wrap foot"><span>© 2026 SANTA CUP I</span><span>Community CS2 tournament · Polska</span></div></footer>
+</body></html>
